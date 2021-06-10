@@ -1,0 +1,201 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local GUI = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local Fly = Instance.new("TextButton")
+local Admin = Instance.new("TextButton")
+local Btools = Instance.new("TextButton")
+local Speed = Instance.new("TextButton")
+local Noclip = Instance.new("TextButton")
+local Invisible = Instance.new("TextButton")
+
+--Properties:
+
+GUI.Name = "GUI"
+GUI.Parent = game.CoreGui
+GUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+main.Name = "main"
+main.Parent = GUI
+main.BackgroundColor3 = Color3.fromRGB(75, 0, 113)
+main.Position = UDim2.new(0.0253054053, 0, 0.18394649, 0)
+main.Size = UDim2.new(0, 234, 0, 420)
+main.Active = true
+main.Draggable = true
+main.Visible = true
+
+TextLabel.Parent = main
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Size = UDim2.new(0, 234, 0, 38)
+TextLabel.Font = Enum.Font.GothamBold
+TextLabel.Text = "Noodle Mod :)"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+Fly.Name = "Fly"
+Fly.Parent = main
+Fly.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+Fly.Position = UDim2.new(0.0726495758, 0, 0.178461537, 0)
+Fly.Size = UDim2.new(0, 200, 0, 38)
+Fly.Font = Enum.Font.GothamBold
+Fly.Text = "Fly"
+Fly.TextColor3 = Color3.fromRGB(0, 0, 0)
+Fly.TextSize = 14.000
+Fly.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/7rXZ9VNc", true))()
+end)
+
+Admin.Name = "Admin"
+Admin.Parent = main
+Admin.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+Admin.Position = UDim2.new(0.0726495758, 0, 0.861794889, 0)
+Admin.Size = UDim2.new(0, 200, 0, 38)
+Admin.Font = Enum.Font.GothamBold
+Admin.Text = "Admin"
+Admin.TextColor3 = Color3.fromRGB(0, 0, 0)
+Admin.TextSize = 14.000
+Admin.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet(('https://pastebin.com/raw/pyzjWNhk'),true))()
+end)
+
+Btools.Name = "Btools"
+Btools.Parent = main
+Btools.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+Btools.Position = UDim2.new(0.0726495758, 0, 0.720915794, 0)
+Btools.Size = UDim2.new(0, 200, 0, 38)
+Btools.Font = Enum.Font.GothamBold
+Btools.Text = "Btools"
+Btools.TextColor3 = Color3.fromRGB(0, 0, 0)
+Btools.TextSize = 14.000
+Btools.MouseButton1Down:connect(function()
+	Instance.new("HopperBin", game.Players.LocalPlayer.Backpack).BinType = 2
+	Instance.new("HopperBin", game.Players.LocalPlayer.Backpack).BinType = 3
+	Instance.new("HopperBin", game.Players.LocalPlayer.Backpack).BinType = 4
+end)
+
+Speed.Name = "Speed"
+Speed.Parent = main
+Speed.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+Speed.Position = UDim2.new(0.0726495758, 0, 0.575604379, 0)
+Speed.Size = UDim2.new(0, 200, 0, 38)
+Speed.Font = Enum.Font.GothamBold
+Speed.Text = "Speed"
+Speed.TextColor3 = Color3.fromRGB(0, 0, 0)
+Speed.TextSize = 14.000
+Speed.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+end)
+
+Noclip.Name = "Noclip"
+Noclip.Parent = main
+Noclip.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+Noclip.Position = UDim2.new(0.0726495758, 0, 0.432673991, 0)
+Noclip.Size = UDim2.new(0, 200, 0, 38)
+Noclip.Font = Enum.Font.GothamBold
+Noclip.Text = "Noclip"
+Noclip.TextColor3 = Color3.fromRGB(0, 0, 0)
+Noclip.TextSize = 14.000
+Noclip.TextWrapped = true
+Noclip.MouseButton1Down:connect(function()
+	--[[
+    Made by PresidentIvan!
+--]]
+
+	local player = game.Players.LocalPlayer
+	local mouse = player:GetMouse()
+	local runservice = game:GetService("RunService")
+	local noclip = false
+
+	local msg = Instance.new("Message", player.PlayerGui)
+	msg.Text = "Noclip Script by PresidentIvan! Press on 'e' to noclip & 't' to destroy this message!"
+
+	runservice.Stepped:Connect(function()
+		if noclip then
+			player.Character.Humanoid:ChangeState(11)
+		end
+	end)
+
+	mouse.KeyDown:Connect(function(key)
+		if key == "t" then
+			msg:Destroy()
+		end
+	end)
+
+	mouse.KeyDown:Connect(function(key)
+		if key == "e" then
+			noclip = true
+			player.Character.Humanoid:ChangeState(11)
+		end
+	end)
+end)
+
+Invisible.Name = "Invisible"
+Invisible.Parent = main
+Invisible.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+Invisible.Position = UDim2.new(0.0726495758, 0, 0.297582418, 0)
+Invisible.Size = UDim2.new(0, 200, 0, 38)
+Invisible.Font = Enum.Font.GothamBold
+Invisible.Text = "Invisible"
+Invisible.TextColor3 = Color3.fromRGB(0, 0, 0)
+Invisible.TextSize = 14.000
+Invisible.MouseButton1Down:connect(function()
+	--Made by localhost50
+	Local = game:GetService('Players').LocalPlayer
+	Char  = Local.Character
+	touched,tpdback = false, false
+	Local.CharacterAdded:connect(function(char)
+		if script.Disabled ~= true then
+			wait(.25)
+			loc = Char.HumanoidRootPart.Position
+			Char:MoveTo(box.Position + Vector3.new(0,.5,0))
+		end
+	end)
+	game:GetService('UserInputService').InputBegan:connect(function(key)
+		if key.KeyCode == Enum.KeyCode.Equals then
+			if script.Disabled ~= true then
+				script.Disabled = true
+				print'you may re-execute'
+			end
+		end
+	end)
+	box = Instance.new('Part',workspace)
+	box.Anchored = true
+	box.CanCollide = true
+	box.Size = Vector3.new(10,1,10)
+	box.Position =  Vector3.new(0,10000,0)
+	box.Touched:connect(function(part)
+		if (part.Parent.Name == Local.Name) then
+			if touched == false then
+				touched = true
+				function apply()
+					if script.Disabled ~= true then
+						no = Char.HumanoidRootPart:Clone()
+						wait(.25)
+						Char.HumanoidRootPart:Destroy()
+						no.Parent = Char
+						Char:MoveTo(loc)
+						touched = false
+					end end
+				if Char then
+					apply() 
+				end
+			end
+		end
+	end)
+	repeat wait() until Char
+	loc = Char.HumanoidRootPart.Position
+	Char:MoveTo(box.Position + Vector3.new(0,.5,0))
+	Char.Torso.Transparency = 1
+	Char.Head.Transparency = 1
+	Char["Right Arm"].Transparency = 1
+	Char["Left Arm"].Transparency = 1
+	Char["Right Leg"].Transparency = 1
+	Char["Left Leg"].Transparency = 1
+end)
